@@ -17,7 +17,6 @@ const Products = () => {
         setData(await response.clone().json());
         setFilter(await response.json());
         setLoading(false);
-        console.log(filter);
       }
       return () => {
         componentMounted = false;
@@ -36,7 +35,7 @@ const Products = () => {
           </div>
         </div>
         <div className="row justify-content-center">
-          {loading ? <Loading title='product' /> : <ShowProduct filter={filter}/> }
+          {loading ? <Loading title='product' /> : <ShowProduct data={data} filter={filter} setFilter={setFilter} /> }
         </div>
       </div>
     </div>

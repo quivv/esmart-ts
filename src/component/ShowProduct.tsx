@@ -1,17 +1,25 @@
 import React from "react";
 import { CartType } from "../Type";
-type Props = {
+
+type Props = {  
+  data: CartType[];
   filter: CartType[];
+  setFilter: React.Dispatch<React.SetStateAction<CartType[]>>
 };
-const ShowProduct: React.FC<Props> = ({ filter }) => {
+
+const ShowProduct: React.FC<Props> = ({ data, filter, setFilter }) => {
+  const handlFilter = (para: string) => {
+    const updateList = data.filter(x => x.category === para)
+    setFilter(updateList)
+  } 
   return (
     <>
       <div className="buttons d-flex justify-content-center mb-5 pb-5">
-        <button className="btn btn-outline-dark me-2">All</button>
-        <button className="btn btn-outline-dark me-2">Men's Clothing</button>
-        <button className="btn btn-outline-dark me-2">Women's Clothing</button>
-        <button className="btn btn-outline-dark me-2">Jewelery</button>
-        <button className="btn btn-outline-dark me-2">Electronic</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>All</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => handlFilter("men's clothing")}>Men's Clothing</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => handlFilter("women's clothing")}>Women's Clothing</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => handlFilter("jewelery")}>Jewelery</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => handlFilter("electronics")}>Electronic</button>
       </div>
       {filter.map((product) => {
         return (
