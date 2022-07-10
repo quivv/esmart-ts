@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { CartType } from '../Type';
-import Loading from './Loading';
-import ShowProduct from './ShowProduct';
+import Loadings from './Loadings';
+import ShowProducts from './ShowProducts';
 
 const Products = () => {
   const [data, setData] = useState<CartType[]>([]);
@@ -23,12 +23,12 @@ const Products = () => {
         componentMounted = false;
       }
     }
-    getProducts();
+    getProducts();    
   },[])
 
   return (
     <div>
-      <div className="container my-5 py-5">
+      <div className="container">
         <div className="row">
           <div className="col-12 mb-5">
             <h1 className="display-6 fw-bolder text-center">Latest Products</h1>
@@ -36,7 +36,7 @@ const Products = () => {
           </div>
         </div>
         <div className="row justify-content-center">
-          {loading ? <Loading title='product' /> : <ShowProduct data={data} filter={filter} setFilter={setFilter} /> }
+          {loading ? <Loadings/> : <ShowProducts data={data} filter={filter} setFilter={setFilter} /> }
         </div>
       </div>
     </div>
