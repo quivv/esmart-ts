@@ -5,5 +5,8 @@ export type CartType = {
   description: string;
   category: string;
   image: string;
-  amount: number;
+  rating: {
+    rate: number,
+    count: number
+  };
 }
