@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { ProductType } from "../Type";
 
 const Navbar = () => {
-  const state: ProductType[] = useSelector<ProductType>(x => x.handleCart)
   
   return (
     <div>
