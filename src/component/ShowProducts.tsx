@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { CartType } from "../Type";
+import { ProductType } from "../Type";
 
 type Props = {  
-  data: CartType[];
-  filter: CartType[];
-  setFilter: React.Dispatch<React.SetStateAction<CartType[]>>
+  data: ProductType[];
+  filter: ProductType[];
+  setFilter: React.Dispatch<React.SetStateAction<ProductType[]>>
 };
 
 const ShowProducts: React.FC<Props> = ({ data, filter, setFilter }) => {

@@ -1,4 +1,4 @@
-export type CartType = {
+export type ProductType = {
   id: number;
   title: string;
   price: number;
@@ -9,4 +9,5 @@ export type CartType = {
     rate: number,
     count: number
   };
+  amount: number;
 }

@@ -1,11 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import { CartType } from '../Type'
+import { ProductType } from '../Type'
 type Props = {
-  product: CartType;
+  product: ProductType;
+  handleCart: (item:ProductType) => void
 }
 
-const ShowProduct:React.FC<Props> = ({product}) => {
+const ShowProduct:React.FC<Props> = ({product, handleCart}) => {
+
   return (
     <>
       <div className="col-md-6 my-4">
@@ -32,7 +34,7 @@ const ShowProduct:React.FC<Props> = ({product}) => {
         <button className="btn btn-outline-dark px-4 py-2">
           Add to Cart
         </button>
-        <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2">
+        <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2" onClick={() => handleCart(product)}>
           Go to Cart
         </NavLink>
       </div>

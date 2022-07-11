@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { CartType } from '../Type';
+import { ProductType } from '../Type';
 import Loadings from './Loadings';
 import ShowProducts from './ShowProducts';
 
 const Products = () => {
-  const [data, setData] = useState<CartType[]>([]);
-  const [filter, setFilter] = useState<CartType[]>(data);
+  const [data, setData] = useState<ProductType[]>([]);
+  const [filter, setFilter] = useState<ProductType[]>(data);
   const [loading, setLoading] = useState<boolean>(false);
   let componentMounted:boolean = true;
 
